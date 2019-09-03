@@ -11,7 +11,7 @@ getwd()
 # At the beginning of a script, it is useful to make sure you have
 # downloaded and installed all necessary packages
 
-install.packages("tidyverse") 
+install.packages("tidyverse")
 # Note that this loads the following packages: ggplot2 purrr 
 #   tibble dplyr tidyr stringr readr forcats
 library("tidyverse")
@@ -71,25 +71,35 @@ ggplot(data)+
 # Dataset found at datasets/quinn/chpt2/lovett.csv
 # Enter your code below
 
-
+data2<-read_csv("datasets/quinn/chpt2/lovett.csv",col_names = TRUE,
+               col_types = cols(
+                 STREAM = col_character() ))
 
 # Calculate summary statistics for SO4 and SO4MOD
 # Enter your code below
 
+summary(data2)
 
 
 # Calculate standard deviation for SO4 and SO4MOD
 # Enter your code below
 
-
+summarise(data2, sd_so4 = sd(SO4), sd_so4mod = sd(SO4MOD))
 
 # Plot histograms of SO4 and Modified SO4 with appropriate bin sizes
 # Enter your code below
 
 
+ggplot(data2)+
+  geom_histogram(aes(SO4), binwidth = 3)
+
+ggplot(data2)+
+  geom_histogram(aes(SO4MOD), binwidth = 8)
 
 # Plot boxplots of SO4 and Modified SO4 using the code below.  
 # You do not need to write any new code for this part!
+
+
 
 # The code below modifies the dataset so it only contains SO4 and Modified SO4
 # using select{dplyr}, and is oriented in long form using gather{tidyr}
