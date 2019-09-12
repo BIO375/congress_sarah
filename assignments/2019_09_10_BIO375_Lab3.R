@@ -135,9 +135,8 @@ View(summ_sanchez)
 # Enter your code here
 
 
-sanchez_data2<-mutate(sanchez_data, log(Prod+1))
+sanchez_data<-mutate(sanchez_data, log(Prod+1))
 
-View(sanchez_data2)
 
 
 # Generate histograms of beetle density by colony type before and after data 
@@ -145,10 +144,24 @@ View(sanchez_data2)
 # Enter your code here
 
 
+ggplot(sanchez_data) +
+  geom_histogram(aes(Prod), binwidth = 19)+
+  facet_wrap(~Pres)
 
+
+ggplot(sanchez_data) +
+  geom_histogram(aes(log(Prod+1)), color = "blue", binwidth = 0.5)+
+  facet_wrap(~Pres)
 
 
 # Plot boxplots of beetle density by colony type before and after data 
 # transformation
 # Enter your code here
+
+ggplot(sanchez_data)+
+  geom_boxplot(aes(x = Pres, y = Prod), notch = FALSE, varwidth = TRUE, color = "blue")
+
+ggplot(sanchez_data)+
+  geom_boxplot(aes(x = Pres, y = log(Prod+1)), notch = FALSE, varwidth = TRUE, color = "blue")
+
 
