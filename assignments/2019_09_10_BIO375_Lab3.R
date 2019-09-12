@@ -69,13 +69,27 @@ compensation<-mutate(compensation, log(Root))
 # https://r4ds.had.co.nz/data-visualisation.html
 # Enter your code here
 
+install.packages("tidyverse")
+library(tidyverse)
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))
 
 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, size = class))
 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 
-
-
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 
 
 # Compare the histograms and boxplots of EGGS and squareroot_eggs
@@ -97,6 +111,7 @@ ggplot(ward)+
 # Enter your code here
 
 
+sanchez_data<-read_csv("datasets/demos/sanchez.csv")
 
 
 
@@ -104,7 +119,15 @@ ggplot(ward)+
 # Enter your code here
 
 
+summ_sanchez <- sanchez_data %>%
+  group_by(Pres) %>% 
+  summarise(mean_sanchez = mean(Prod),
+            median_sanchez = median(Prod),
+            IQR_sanchez = IQR(Prod),
+            sd_sanchez = sd(Prod),
+            var_sanchez = var(Prod))
 
+View(summ_sanchez)
 
 
 
@@ -112,7 +135,9 @@ ggplot(ward)+
 # Enter your code here
 
 
+sanchez_data2<-mutate(sanchez_data, log(Prod+1))
 
+View(sanchez_data2)
 
 
 # Generate histograms of beetle density by colony type before and after data 
