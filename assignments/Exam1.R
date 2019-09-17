@@ -62,3 +62,6 @@ ggplot(sage_data) +
 ggplot(sage_data) +
   geom_histogram(aes(log(timeToMating+1)), color = "green", binwidth = 0.5)+
   facet_wrap(~feedingStatus)
+
+
+#End of Code for Extra Credit
