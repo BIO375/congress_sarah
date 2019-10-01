@@ -17,6 +17,8 @@ library("DescTools")
 # Read in data file, generic version
 #<name-you-assign><-read_csv("path-to-file", col_names = TRUE)
 
+
+
 ### One sample t-test #########################
 # Option A
 # The function pt() calculates the probability of t less than or equal to a sample value.  Note that this is 
@@ -39,6 +41,8 @@ df <- sample_n -1
 # Read in data
 range_shift <- read_csv("datasets/abd/chapter11/chap11q01RangeShiftsWithClimateChange.csv")
 
+View(range_shift)
+
 # Identify your response variable using the form dataset$variable_name
 y<-range_shift$elevationalRangeShift
 
@@ -49,6 +53,8 @@ sample_n <- as.numeric(length(y))
 df <- sample_n -1
 
 # Whether you are given the values for mean/sd/n or calculate them, your next step is calculating t_sample
+#null mean will be what ever value you are given in the problem
+
 t_sample <- (sample_mean - null_mean)/(sample_sd/sqrt(sample_n))
 
 # The value I call "negative tail" is the exact probability of obtaining t less than or equal to your t-sample
@@ -91,6 +97,8 @@ t.test(range_shift$elevationalRangeShift,
 # more) in each row.  Later you will use this untidy dataset to perform the statistical test.
 # These data come from Chapter 12 in your book.
 untidy_blackbird <- read_csv("datasets/abd/chapter12/chap12e2BlackbirdTestosterone.csv")
+
+View(untidy_blackbird)
 
 # Begin by exploring the data with histograms, boxplots, and q-q plots
 # Since the assumptions of normality apply to differences, use mutate() to add a column called diff.
@@ -181,6 +189,8 @@ SignTest(untidy_blackbird$diff, alternative = "less", mu = 0, conf.level = 0.95)
 # Read in the Ward & Quinn dataset looking at the egg production of predatory snails
 ward <- read_csv("datasets/quinn/chpt3/ward.csv")
 
+View(ward)
+
 # Look at the summary statistics
 summ_eggs <- ward %>%
   group_by(ZONE) %>% 
@@ -237,7 +247,7 @@ ratio <-(max(summ_surv$sd_surv))/(min(summ_surv$sd_surv))
 
 # Examine plots for evidence of non-normality.  
 
-#Histogram is pretty worthless because n is so small.
+# Histogram is pretty worthless because n is so small.
 ggplot(salmon) +
   geom_histogram(aes(proportionSurvived), binwidth = 0.05)+
   facet_wrap(~troutTreatment)
@@ -265,6 +275,8 @@ t.test(proportionSurvived ~ troutTreatment, data = salmon, alternative = "less",
 
 # For this we are going to return to the cannibal crickets from Exam 1 Extra Credit
 cricket <- read_csv("datasets/abd/chapter13/chap13e5SagebrushCrickets.csv")
+
+View(cricket)
 
 ggplot(cricket) +
   geom_histogram(aes(timeToMating), binwidth = 10)+
