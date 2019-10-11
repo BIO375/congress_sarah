@@ -92,6 +92,9 @@ View(untidySpider_data)
 
 untidySpider_data <- mutate(untidySpider_data, diff = HORIZDIM - HORIZLIG)
 
+ggplot(untidySpider_data) +
+  geom_boxplot(aes(x = group, y = cholest))
+
 
 t.test(untidySpider_data$HORIZDIM, untidySpider_data$HORIZLIG, 
        alternative = "two.sided", paired = TRUE, conf.level = 0.95)
