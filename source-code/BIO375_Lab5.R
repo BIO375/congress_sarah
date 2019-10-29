@@ -233,6 +233,8 @@ t.test(EGGS ~ ZONE, data = ward, var.equal = TRUE, alternative = "less", conf.le
 # Read in the Levin et al dataset from Chapter 12 of your book.  
 salmon <- read_csv("datasets/abd/chapter12/chap12e4ChinookWithBrookTrout.csv")
 
+View(salmon)
+
 # Suppose we are interested in potential differences in the proportion of surviving native chinook salmon
 # in the presence and absence of invasive brook trout.
 # Examine the ratio of the variances
