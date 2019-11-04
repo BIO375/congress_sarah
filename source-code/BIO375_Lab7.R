@@ -54,6 +54,7 @@ daphnia <- daphnia %>%
 
 # Look at the data
 head(daphnia)
+View(daphnia)
 summary(daphnia)
 
 # When you do a normal boxplot, the parasite species names overlap and are illegible
@@ -90,9 +91,9 @@ summ_growth.rate <- daphnia %>%
   summarise(mean_growth.rate = mean(growth.rate),
             sd_growth.rate = sd(growth.rate),
             n_growth.rate = n())
-ratio <-(max(summ_growth.rate$sd_growth.rate))/(min(summ_growth.rate$sd_growth.rate))
+ratio_daphnia <-(max(summ_growth.rate$sd_growth.rate))/(min(summ_growth.rate$sd_growth.rate))
 
-# The function autoplot will give you a residuals by predicte plot, which is 
+# The function autoplot will give you a residuals by predicted plot, which is 
 # called "Residuals vs. Fitted" here.  It also gives you a Q-Q plot of the RESIDUALS.
 
 autoplot(model01)
@@ -159,7 +160,6 @@ summary(tukey)
 # This is a very simple test output, it gives you a test statistic, df, and p
 
 kruskal.test(growth.rate ~ parasite, data = daphnia)
-summary(kruskal)
 
 ### Robust Welch's ANOVA ####
 
