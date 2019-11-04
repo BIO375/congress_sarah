@@ -120,7 +120,7 @@ View(summ_algae)
 #ratio test
 
 ratio <-(max(summ_algae$sd_growth))/(min(summ_algae$sd_growth))
-
+#### CODE BREAKS HERE BC ORIGINAL ALGAE DATA FILE ALTERED ####
 View(ratio)
 #rato is 1.13 which is less than 3 :)
 
@@ -141,4 +141,5 @@ ggplot(algae_data)+
 #two sided, two sample T test
 t.test(growthrate ~ treatment, data = algae_data, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
 
+#### ONE CODE BREAK, 5/6 POINTS
 
