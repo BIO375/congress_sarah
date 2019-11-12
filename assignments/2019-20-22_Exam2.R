@@ -9,7 +9,7 @@ library("tidyverse")
 # Check for updates
 tidyverse_update()
 
-install.packages("purrr") #done to update tidyverse as told by RStudio
+#install.packages("purrr") #done to update tidyverse as told by RStudio
 
 # To perform sign tests, install and load the package DescTools
 install.packages("DescTools")
@@ -40,7 +40,7 @@ View(summ_feathers)
 #tests for normality
 
 ggplot(diffFeather) +
-  geom_histogram(aes(diff), binwidth = .01)
+  geom_histogram(aes(diff), binwidth = .02)
 
 ggplot(diffFeather) +
   geom_boxplot(aes(x = "", y = diff))
