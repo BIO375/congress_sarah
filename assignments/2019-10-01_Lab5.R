@@ -94,6 +94,7 @@ untidySpider_data <- mutate(untidySpider_data, diff = HORIZDIM - HORIZLIG)
 
 ggplot(untidySpider_data) +
   geom_boxplot(aes(x = group, y = cholest))
+#### CODE BREAKS HERE, NO VARIABLE CALLED GROUP, NOR CHOLEST) ####
 
 
 t.test(untidySpider_data$HORIZDIM, untidySpider_data$HORIZLIG, 
