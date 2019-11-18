@@ -99,3 +99,8 @@ ggplot(untidySpider_data) +
 
 t.test(untidySpider_data$HORIZDIM, untidySpider_data$HORIZLIG, 
        alternative = "two.sided", paired = TRUE, conf.level = 0.95)
+
+### 9/10 Code breaks once ####
+
+
+

@@ -1,3 +1,4 @@
+### Lab 7 completed ####
 # Clean up the working environment
 rm(list = ls())
 # Verify working directory, should be ~/Documents/Analyses/lastname_first
@@ -11,25 +12,23 @@ tidyverse_update()
 
 # Install package ggfortify, *note* only do install.packages ONCE
 # ggfortify is a package that works with ggplot2 to make nice plots
-install.packages("ggfortify")
+# install.packages("ggfortify")
 library("ggfortify")
 # multcomp is used for contrasts and multiple comparisons
-install.packages("multcomp")
+# install.packages("multcomp")
 library("multcomp")
 # nlme is used for random effects ANOVA
-install.packages("nlme")
+# install.packages("nlme")
 library("nlme")
 
 #####Reading in Data#####
 river_data <-read_csv("datasets/demos/Jaffe.csv", col_types = cols(
   Depth = col_factor() ))
 
-View(river_data)
 
 #1-5
 # Look at the data
 head(river_data)
-View(river_data)
 summary(river_data)
 
 #####Chech assumptions#####
@@ -73,7 +72,6 @@ summ_Aldrin <- river_data %>%
             sd_concentration = sd(Aldrin),
             median_concentration= median(Aldrin),
             n_samples = n())
-View(summ_Aldrin)
 
 summ_HCB <- river_data %>%
   group_by(Depth) %>% 
@@ -81,7 +79,6 @@ summ_HCB <- river_data %>%
             sd_concentration = sd(HCB),
             median_concentration= median(HCB),
             n_samples = n())
-View(summ_HCB)
 
 ratio_Aldrin <-(max(summ_Aldrin$sd_concentration))/(min(summ_Aldrin$sd_concentration))
 
@@ -107,8 +104,6 @@ summary(Aldrinmodel)
 
 river_data <- mutate(river_data, log_Aldrin= log10(Aldrin))
 
-View(river_data)
-
 AldrinLogModel <- lm(log_Aldrin~Depth, data = river_data)
 
 summ_LogAldrin <- river_data %>%
@@ -117,7 +112,6 @@ summ_LogAldrin <- river_data %>%
             sd_concentration = sd(log_Aldrin),
             median_concentration= median(log_Aldrin),
             n_samples = n())
-View(summ_LogAldrin)
 
 ratio_LogAldrin <-(max(summ_LogAldrin$sd_concentration))/(min(summ_LogAldrin$sd_concentration))
 
@@ -130,8 +124,6 @@ summary(AldrinLogModel)
 #####Tukey-Kramer Honestly Significant Difference#####
 
 tukey <- glht(AldrinLogModel, linfct = mcp(Depth = "Tukey"))
+
+
 summary(tukey)
-
-
-#### 10/10 code runs without breaking
-
