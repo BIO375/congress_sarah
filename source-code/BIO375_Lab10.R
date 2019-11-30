@@ -15,6 +15,8 @@ library("epitools")
 library("tidyverse")
 # Check for updates
 tidyverse_update()
+#install.packages("rlang")
+
 
 ### Exact Binomial test ####
 
@@ -43,7 +45,7 @@ model02 <- binom.test(x= 28, n=41, p=0.5, alternative = "greater", conf.level = 
 model02
 
 # So we can conclude that females occured more frequently than expected in the wilderness population in Alaska 
-# (binomial test: P < 0.05, n=46) but not in the Kevo population (binomial test: P > 0.05 n=41).
+# (binomial test: P < 0.05, n=41) but not in the Kevo population (binomial test: P > 0.05 n=46).
 
 ### Chi-squared goodness of fit ####
 
@@ -54,7 +56,7 @@ model02
 
 birth <- read_csv("datasets/abd/chapter08/chap08e1DayOfBirth.csv", 
                   col_types = cols(day = col_factor()))
-
+View(birth)
 # This file has a single categorical variable, day, that has 7 levels
 
 # You are interested in testing whether the probability of birth is the same on every day of the week (i.e., 1 in 7)
@@ -73,6 +75,7 @@ birth_summ <- birth %>%
 birth_summ <- add_column(birth_summ, expected= c(52,52,52,52,52,53,52)) %>%
   mutate(expected_p = expected/365)
 
+View(birth_summ)
 # All the expected values are greater than 5 so we meet the assumptions of the chi-sq goodness of fit test
 
 # Now use the function chisq.test()
@@ -93,6 +96,7 @@ model03
 # cancer?  
 
 cancer <- read_csv("datasets/abd/chapter09/chap09e2AspirinCancer.csv")
+View(cancer)
 ggplot(data = cancer) +
   geom_mosaic(aes(x = product(cancer, aspirinTreatment), fill=cancer), na.rm=TRUE)
 
@@ -132,6 +136,7 @@ model04
 # Then you define the names: row names by column names
 
 tab01 <- matrix(c(1438, 1427, 18496, 18515), 2, 2, byrow=TRUE)
+View(tab01)
 # Add row names, then column names with the function dimnames()
 dimnames(tab01) <- list("Outcome" = c("Cancer", "No Cancer"),
                       "Treatment" = c("Aspirin", "No Aspirin"))
