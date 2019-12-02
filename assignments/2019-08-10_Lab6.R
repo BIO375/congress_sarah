@@ -12,7 +12,8 @@ tidyverse_update()
 install.packages("DescTools")
 library("DescTools")
 
-#####Question 20#####
+##### Question 20 ##### 2/2 pts
+
 #a: you can perform either a Welch's t-test because the ratio is very high indicating homoskedasticity or
 #   you can transform the data using a mathematical function and then use a normal 2 sample t test
 #b: There is a significant difference between the coloration of kokanee salmon and sockeye salmon 
