@@ -41,12 +41,13 @@ model05
 bacteria<- matrix(c(30,17,41,49), 2,2, byrow=TRUE)
 
 
-dimnames(bacteria) <- list("Outcome" = c("Xhoffraix", "Bergen op Zoom"),
-                        "Treatment" = c("Female", "Male"))
+dimnames(bacteria) <- list("Location" = c("Xhoffraix", "Bergen op Zoom"),
+                        "Sex" = c("Female", "Male"))
 View(bacteria)
 
 as.matrix(bacteria)
 model06 <- chisq.test(tab01, correct = FALSE)
 model06
+
 
 
