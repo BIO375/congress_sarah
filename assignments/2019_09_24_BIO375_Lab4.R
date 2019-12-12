@@ -56,3 +56,6 @@ ggplot(data01) +
   facet_wrap(~Survival)
 
 #END OF SCENARIO 2 CODE
+
+
+#### 10/10 Code runs without breaking ####

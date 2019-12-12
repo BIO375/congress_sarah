@@ -12,7 +12,7 @@ tidyverse_update()
 install.packages("DescTools")
 library("DescTools")
 
-##### Question 20 ##### 2/2 pts
+##### Question 20 ##### 
 
 #a: you can perform either a Welch's t-test because the ratio is very high indicating homoskedasticity or
 #   you can transform the data using a mathematical function and then use a normal 2 sample t test
@@ -158,6 +158,7 @@ ggplot(fish_data)+
 #variance difference was less than three using the rule of thumb, normal two sample t test used
 t.test(time ~ group, data = fish_data, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
 
+#### 22/24 Code runs without breaking, graph missing Q20, ratio test not shown in Q16 ####
 
 
 
