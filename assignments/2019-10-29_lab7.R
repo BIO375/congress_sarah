@@ -133,5 +133,4 @@ tukey <- glht(AldrinLogModel, linfct = mcp(Depth = "Tukey"))
 summary(tukey)
 
 
-#### 10/10 code runs without breaking
-
+#### 10/10 code runs without breaking ####

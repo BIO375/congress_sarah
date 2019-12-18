@@ -60,3 +60,5 @@ ggplot(data = fowler, aes(x = FERTILIZER, y = YIELD)) +
   geom_smooth(method = "lm", level=0.95) +
   theme_bw()+
   labs( x = "fertilizer", y = "yield")
+
+#### 10/10 code runs without breaking ####

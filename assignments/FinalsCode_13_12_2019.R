@@ -94,3 +94,8 @@ View(demos)
 model_03 <-chisq.test(x = demos$observed, p = demos$expected_p)
 model_03
 model_03$expected
+
+
+# Line 29 flipped y and x in formula
+# Line 86 should be planned comparison
+#### 8/10 code breaks 2x ####

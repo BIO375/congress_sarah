@@ -182,3 +182,5 @@ autoplot(model_crab)
 #Step 4
 anova(model_crab)
 
+# Code break at line 131
+### 25/26 points ####

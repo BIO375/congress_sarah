@@ -49,5 +49,5 @@ as.matrix(bacteria)
 model06 <- chisq.test(tab01, correct = FALSE)
 model06
 
-
+# Code breaks at lines 30-34
 
